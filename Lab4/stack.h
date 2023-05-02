@@ -3,7 +3,7 @@
 using namespace std;
 
 const int MAX_SIZE = 20;
-//templating for class
+//templating for class, ensures integer and string stacks are supported
 template <typename T>
 class stack{
 
