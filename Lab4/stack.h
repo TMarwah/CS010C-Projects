@@ -54,11 +54,11 @@ class stack{
         //pop the top two elements of the stack
         void pop_two(){
             try{
-                //if empty, throw empty exception
+                //if empty stack, throw empty exception
                 if(size == 0){
                     throw out_of_range("Called pop_two on empty stack");
                 }
-                //if size 1, throw size 1 exception
+                //if size 1 stack, throw size 1 exception
                 else if(size == 1){
                     throw out_of_range("Called pop_two on stack of size 1");
                 }
