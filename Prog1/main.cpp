@@ -87,6 +87,8 @@ int main() {
 
     if (lastPerson != nullptr) {
         cout << lastPerson->payload << " wins!" << endl;
+        delete lastPerson;
+        lastPerson = nullptr;
     } else {
         cout << "error: null game" << endl;
     }
