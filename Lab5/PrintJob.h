@@ -15,5 +15,8 @@ public:
   int getJobNumber ( );
   int getPages ( );
   //You can add additional functions here
+  void setPriority (int val);
+  void setJobNumber (int val);
+  void setPages (int val);
 };
 #endif
