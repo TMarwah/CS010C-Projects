@@ -1,5 +1,7 @@
 #include "Heap.h"
+#include <iostream>
 #include <stdexcept>
+using namespace std;
 //default constructor
 Heap::Heap()
 : numItems(0){}
@@ -42,3 +44,17 @@ void Heap::dequeue(){
         --numItems;
     }
 }
+
+PrintJob* Heap::highest(){
+    if (numItems == 0){
+        throw runtime_error("Heap is empty");
+    }
+    return arr[0];
+}
+
+void Heap::print(){
+    cout << "Priority: " << arr[0]->getPriority();
+    cout << ", Job Number: " << arr[0]->getJobNumber();
+    cout << ", Number of Pages: " << arr[0]->getPages() << endl;
+}
+
