@@ -58,3 +58,22 @@ void Heap::print(){
     cout << ", Number of Pages: " << arr[0]->getPages() << endl;
 }
 
+void Heap::trickleDown(int num){ 
+    if (((2 * num + 1) < numItems) && (2 * num + 2 < numItems)){
+        //check case for 2 children on current node
+        if (arr[2*num+1]->getPriority() > arr[2*num+2]->getPriority()){
+            arr[num] = arr[2*num + 1];
+            trickleDown(2*num +1);
+        }
+        //if right child has greater prio than left
+        else{
+            arr[num] = arr[2*num+2];
+            trickleDown(2*num +2);
+        }
+    }
+    //only left child exists
+    else if (((2*num + 1)) < numItems){
+        arr[num] = arr[2*num+1];
+    }
+    return;
+}
