@@ -36,9 +36,6 @@ int menu() {
 }
 
 int main( ) {
-    // Pass all your tests before running the executable main
-    return 0;
-
     BSTree tree;
 
     int choice = menu();
@@ -49,17 +46,28 @@ int main( ) {
     
         if (choice == 1) {
           cout << "Enter string to insert: ";
+          getline(cin, entry);
+          tree.insert(entry);
         } else if (choice == 2) {
           cout << "Enter string to remove: ";
+          getline(cin, entry);
+          tree.remove(entry);
         } else if (choice == 3) {
+          printOrders(& tree);
         } else if (choice == 4) {
           cout << "Enter string to search for: ";
+          getline(cin, entry);
+          tree.search(entry);
         } else if (choice == 5) {
           cout << "Smallest: " << endl;
+          cout << tree.smallest() << endl;
         } else if (choice == 6) {
           cout << "Largest: " << endl;
+          cout << tree.largest() << endl;
         } else if (choice == 7) {
           cout << "Enter string: ";
+          getline(cin, entry);
+          tree.height(entry);
         }
         //fix buffer just in case non-numeric choice entered
         choice = menu();

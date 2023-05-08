@@ -1,13 +1,17 @@
 #pragma once
 #include <string>
 #include <cstdlib>
-
+#include "Node.h"
 using namespace std;
 
 class BSTree {
 
     private:
         Node *root;
+        void inOrder(Node* node) const;
+        void preOrder(Node* node) const;
+        void postOrder(Node* node) const;
+        void treeClear(Node* node);
     public:
         /* Constructors */
         /* Default constructor */
@@ -62,4 +66,5 @@ class BSTree {
         void preOrder() const;
         void postOrder() const;
         void inOrder() const;
+        void printNode(const Node* curr) const;
 };
