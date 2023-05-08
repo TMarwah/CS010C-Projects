@@ -8,7 +8,7 @@ Heap::Heap()
 
 void Heap::enqueue(PrintJob* job){
     if (numItems < MAX_HEAP_SIZE){
-        if(numItems == 0){
+        if(!numItems){
             arr[numItems] = job;
             ++numItems;
         }
@@ -30,8 +30,9 @@ void Heap::enqueue(PrintJob* job){
 }
 
 void Heap::dequeue(){
-    if(numItems == 0){
+    if(!numItems){
         throw underflow_error("Underflow Error: Deqeue attempted on empty queue");
+        return;
     }
 
     if (numItems > 2 && arr[1]->getPriority() < arr[numItems-1]->getPriority() && arr[2]->getPriority() < arr[numItems-1]->getPriority()){
@@ -46,8 +47,9 @@ void Heap::dequeue(){
 }
 
 PrintJob* Heap::highest(){
-    if (numItems == 0){
+    if (!numItems){
         throw runtime_error("Heap is empty");
+        return nullptr;
     }
     return arr[0];
 }
