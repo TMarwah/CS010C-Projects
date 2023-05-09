@@ -8,10 +8,12 @@ class BSTree {
 
     private:
         Node *root;
+        bool searchHelp(Node* node, const string &key) const;
+        void remove(Node* &curr, const string &key, bool cont);
         void inOrder(Node* node) const;
         void preOrder(Node* node) const;
         void postOrder(Node* node) const;
-        void treeClear(Node* node);
+        int height(const string& key, Node* curr) const;
     public:
         /* Constructors */
         /* Default constructor */
@@ -56,7 +58,7 @@ class BSTree {
            The height of a leaf node is 0 (count the number of edges on the longest path). 
            Return -1 if the string does not exist. 
          */
-        int height(const string&) const;
+        int height(const string&key) const;
 
         /* Printing */
         /* For all printing orders, each node should be displayed as follows:

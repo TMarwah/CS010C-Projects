@@ -4,6 +4,10 @@ Node::Node(const string& data)
 : data(data),count(1),left(nullptr),right(nullptr){}
 
 Node::~Node(){
-    delete left;
-    delete right;
+    if ( left != nullptr){
+        delete left;
+    }
+    if ( right != nullptr){
+        delete right;
+    } 
 }
