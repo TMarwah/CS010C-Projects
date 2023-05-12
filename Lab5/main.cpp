@@ -41,13 +41,7 @@ int main(){
       max_heap.print();
     }
     else if (choice == 3) {
-      try{
-        max_heap.dequeue();
-      }
-      catch(const std::underflow_error& excpt){
-            cout << excpt.what() << endl;
-        }
-        
+      max_heap.dequeue();
     }
     //fix buffer just in case non-numeric choice entered
     choice = menu();

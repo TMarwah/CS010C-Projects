@@ -8,6 +8,7 @@ Heap::Heap()
 
 void Heap::enqueue(PrintJob* job){
     if (numItems < MAX_HEAP_SIZE){
+        //if empty just add new job
         if(!numItems){
             arr[numItems] = job;
             ++numItems;
@@ -15,23 +16,25 @@ void Heap::enqueue(PrintJob* job){
         else{
             int currItem = numItems; //initialize location to last job
             //while not at first item, keep halving until priority is in order (find location for new printjob insert)
-            while (currItem > 0 && arr[(currItem -1) / 2]->getPriority() < job->getPriority() ){
+            while (currItem > 0 && arr[(currItem - 1) / 2]->getPriority() < job->getPriority() ){
                 //last item becomes val of mid
                 arr[currItem] = arr[(currItem-1)/ 2];
                 currItem = (currItem-1) / 2;
             }
             arr[currItem] = job; //place job into location with proper priority
+            ++numItems;
         }
     }
     else{
+        return;
         //throw exception for full queue
-        throw overflow_error("Overflow Error: Enqeue attempted on full queue");
+        //throw overflow_error("Overflow Error: Enqeue attempted on full queue");
     }
 }
 
 void Heap::dequeue(){
     if(!numItems){
-        throw underflow_error("Underflow Error: Deqeue attempted on empty queue");
+        //throw underflow_error("Underflow Error: Deqeue attempted on empty queue");
         return;
     }
 
@@ -48,7 +51,7 @@ void Heap::dequeue(){
 
 PrintJob* Heap::highest(){
     if (!numItems){
-        throw runtime_error("Heap is empty");
+        //throw runtime_error("Heap is empty");
         return nullptr;
     }
     return arr[0];
