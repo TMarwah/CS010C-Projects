@@ -44,6 +44,7 @@ void Heap::dequeue(){
         --numItems;
     }
     else{
+        //downsort, decrement
         trickleDown(0);
         --numItems;
     }
