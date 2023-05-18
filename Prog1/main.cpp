@@ -87,12 +87,13 @@ int main() {
 
     if (lastPerson != nullptr) {
         cout << lastPerson->payload << " wins!" << endl;
-        delete lastPerson;
-        lastPerson = nullptr;
+        //remove last pointer ensure no memleak
+        
     } else {
         cout << "error: null game" << endl;
     }
-
+    delete lastPerson;
+    lastPerson = nullptr;
     return 0;
 }
 
