@@ -75,12 +75,17 @@ void AVLTree::visualizeTree(ofstream & outFS, Node *n){
 }
 
 Node* AVLTree::rightRotate(Node* originalMid){
+    //store new center as ogmid left
     Node* newCenter = originalMid->getLeft();
+    //make ogright the new right
     Node* ogRight = newCenter->getRight();
 
+    //set right of new center to the ogmid
     newCenter->setRight(originalMid);
+    //set ogmid left to the right
     originalMid->setLeft(ogRight);
 
+    //adjust heights based on maximum height of left and right subtrees
     originalMid->setHeight(max(height(originalMid->getLeft()), height(originalMid->getRight())) + 1);
     newCenter->setHeight(max(height(newCenter->getLeft()), height(newCenter->getRight())) + 1);
 
@@ -88,12 +93,17 @@ Node* AVLTree::rightRotate(Node* originalMid){
 }
 
 Node* AVLTree::leftRotate(Node* originalMid){
+    //store new center as ogmid right
     Node* newCenter = originalMid->getRight();
+    //make ogleft the new left
     Node* ogLeft = newCenter->getLeft();
 
+    //set left of new center to be ogmid
     newCenter->setLeft(originalMid);
+    //set ogmid right to the left
     originalMid->setRight(ogLeft);
 
+    //adjust heights based on maximum height of left and right subtrees
     originalMid->setHeight(max(height(originalMid->getLeft()), height(originalMid->getRight())) + 1);
     newCenter->setHeight(max(height(newCenter->getLeft()), height(newCenter->getRight())) + 1);
 
@@ -104,9 +114,11 @@ Node* AVLTree::insert(Node* node, string key){
     if (node == nullptr){
         return(new Node(key));
     }
+    //if key is pre curr key, traverse left
     else if (key < node->getKey()){
         node->setLeft(insert(node->getLeft(), key));
     }
+    //if key is post curr key, traverse right
     else if (key > node->getKey()){
         node->setRight(insert(node->getRight(), key));
     }
@@ -138,12 +150,14 @@ int AVLTree::balanceFactor(Node* node){
     if (node == nullptr){
         return 0;
     }
+    //calc balance factor based on heights of children
     return height(node->getLeft()) - height(node->getRight());
 }
 
 
 
 int AVLTree::maxFinder(int a, int b){
+    //simple max finder case for height calcs
     if (a>b){
         return a;
     }else{
