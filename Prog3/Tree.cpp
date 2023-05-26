@@ -225,7 +225,6 @@ void Tree::remove(const string& key){
   remove(key,root);
 
 }
-
 void Tree::remove(const string& key, Node* node){
     if(key < node->getSmall() && node->getLeft() != nullptr){
       //left traverse based on key comparison to small
@@ -328,23 +327,34 @@ void Tree::remove(const string& key, Node* node){
         node->setLarge("");
     } 
 }
-bool Tree::search(const string& value) const {
-  Node* curr = root;
 
-  while (curr != nullptr){
-    //if small/large of currnode is the search key
-    if (value == curr->small || value == curr->large){
-        return true;
+
+bool Tree::search(const string &s) const {
+    if(root == nullptr){
+      return false;
+    } 
+    return search(s, root);
+}
+
+bool Tree::search(const string &s, Node* node) const{
+  //if node is the small or large
+    if(s == node->getSmall() || s == node->getLarge()) {
+      return true;
     }
-    //if search key is smaller than curr left, traverse left
-    if (value < curr->small){
-        curr = curr->left;
-    }
-    //if search key exceeds curr right, and is not an empty large, traverse right
-    else if (curr->large != "" && value > curr->large){
-        curr = curr->right;
-    }
-  }
-  return false;
+    //if node is less, traverse left
+    if(s < node->getSmall() && node->getLeft() != nullptr){
+      return search(s, node->getLeft());
+    } 
+    //if node between, traverse middle
+    if((s > node->getSmall() && s < node->getLarge()) || (node->getRight() == nullptr)){
+      return search(s, node->getMiddle());
+    } 
+    //else traverse right
+    else{
+      search(s, node->getRight());
+    } 
+
+    //last case, not found return false
+    return false;
 }
 

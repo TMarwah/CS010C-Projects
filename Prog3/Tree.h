@@ -22,6 +22,7 @@ public:
   void remove(const string &);
   void remove(const string&, Node* );
   bool search (const string &) const;
+  bool search (const string &, Node* node) const;
   void split(Node* node, const string& value);
 
 private:

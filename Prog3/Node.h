@@ -21,13 +21,13 @@ class Node {
   Node* getRight();
   Node* getParent();
 
-  const void setLeft(Node* node);
-  const void setMiddle(Node* node);
-  const void setRight(Node* node);
-  const void setParent(Node* node);
+   void setLeft(Node* node);
+   void setMiddle(Node* node);
+   void setRight(Node* node);
+   void setParent(Node* node);
 
-  const void setSmall(const string&);
-  const void setLarge(const string&);
+   void setSmall(const string&);
+   void setLarge(const string&);
   
 
   bool isFull() const;

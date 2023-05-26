@@ -12,11 +12,11 @@ const string Node::getLarge() {
     return large;
 }
 
-const void Node::setSmall(const string& setSmall) {
+  void Node::setSmall(const string& setSmall) {
     small = setSmall;
 }
 
-const void Node::setLarge(const string& newLarge) {
+  void Node::setLarge(const string& newLarge) {
     large = newLarge;
 }
 
@@ -31,7 +31,7 @@ Node* Node::getRight(){
 }
 
 bool Node::isFull() const{
-    if (small != "" && large != ""){
+    if (small != ""  && large != ""){
         return true;
     }
     return false;
@@ -47,16 +47,16 @@ Node* Node::getParent(){
     return parent;
 }
 
-const void Node::setParent(Node* node){
+ void Node::setParent(Node* node){
     parent = node;
 }
-const void Node::setLeft(Node* node){
+ void Node::setLeft(Node* node){
     left = node;
 }
-const void Node::setMiddle(Node* node){
+ void Node::setMiddle(Node* node){
     middle = node;
 }
-const void Node::setRight(Node* node){
+ void Node::setRight(Node* node){
     right = node;
 }
 
