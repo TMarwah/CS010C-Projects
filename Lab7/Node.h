@@ -10,9 +10,9 @@ class Node{
         ~Node();
 
         //value getter
-        string getKey();
+        const string getKey();
         //node height getter
-        int getHeight();
+        const int getHeight();
         //node height setter
         void setHeight(int h);
 

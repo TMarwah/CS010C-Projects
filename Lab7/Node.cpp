@@ -11,12 +11,12 @@ Node::Node(string k){
 }
 
 //return key
-string Node::getKey(){
+const string Node::getKey(){
     return key;
 }
 
 //return height
-int Node::getHeight(){
+const int Node::getHeight(){
     return height;
 }
 
