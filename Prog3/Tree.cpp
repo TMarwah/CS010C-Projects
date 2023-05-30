@@ -357,4 +357,3 @@ bool Tree::search(const string &s, Node* node) const{
     //last case, not found return false
     return false;
 }
-
