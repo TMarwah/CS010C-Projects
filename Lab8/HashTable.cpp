@@ -163,7 +163,7 @@ void HashTable::put(const string &s, int score) {
 *  If not found, return the value 2.0 (neutral result)
 */
 
-double HashTable::getAverage(const string &s) {
+const double HashTable::getAverage(const string &s) {
     int index = computeHash(s);
     //for each entry at computed index in the hash table
     for (WordEntry& entry : hashTable[index]){

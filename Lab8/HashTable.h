@@ -18,7 +18,7 @@ class HashTable {
 	HashTable(int);
 	~HashTable();
 	bool contains(const string &);
-	double getAverage(const string &);
+	const double getAverage(const string &);
 	void put(const string &, int);
  
  private:
