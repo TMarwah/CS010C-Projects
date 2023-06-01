@@ -8,10 +8,20 @@ BSTree::BSTree()
 : root(nullptr){}
 
 BSTree::~BSTree(){
-    //root clear, node destructor is seperate
-    delete root;
-    root = nullptr;
+    //call helper
+    destroyTree(root);
 
+}
+
+void BSTree::destroyTree(Node* node){
+    if (node == nullptr){
+        return;
+    }
+
+    destroyTree(node->left);
+    destroyTree(node->right);
+
+    delete node;
 }
 
 //insert value

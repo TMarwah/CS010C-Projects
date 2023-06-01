@@ -19,6 +19,8 @@ class BSTree {
         /* Default constructor */
         BSTree();
         ~BSTree();
+        //destructor helper
+        void destroyTree(Node* node);
 
         /* Mutators */
         /* Insert an item into the binary search tree. 
