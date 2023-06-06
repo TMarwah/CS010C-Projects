@@ -9,7 +9,7 @@ BSTree::BSTree()
 
 BSTree::~BSTree(){
     //call helper
-    destroyTree(root);
+    destroyTree(root); 
 
 }
 
